@@ -1,0 +1,14 @@
+server:
+  port: 8001
+
+spring:
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+  jpa:
+    # data.sql scripts 的初始化會在 Hibernate 之後執行，避免Table Not Found
+    defer-datasource-initialization: true
