@@ -1,6 +1,6 @@
 package com.euphy.learn.service;
 
-import com.euphy.learn.entity.Department;
+import com.euphy.learn.dto.DeptDto;
 import com.euphy.learn.repository.DeptRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,21 +11,23 @@ import java.util.List;
 public class DeptServiceImpl implements DeptService {
 
     private final DeptRepository deptRepository;
+    private final DeptMapper deptMapper;
 
     @Autowired
-    public DeptServiceImpl(DeptRepository deptRepository) {
+    public DeptServiceImpl(DeptRepository deptRepository, DeptMapper deptMapper) {
         this.deptRepository = deptRepository;
+        this.deptMapper = deptMapper;
     }
 
-    public Department getById(Long id) {
-        return deptRepository.getReferenceById(id);
+    public DeptDto getById(Long id) {
+        return deptMapper.mapToDto(deptRepository.getReferenceById(id));
     }
 
-    public List<Department> list() {
-        return deptRepository.findAll();
+    public List<DeptDto> list() {
+        return deptRepository.findAll().stream().map(deptMapper::mapToDto).toList();
     }
 
-    public void add(Department department) {
-        deptRepository.save(department);
+    public void add(DeptDto deptDto) {
+        deptRepository.save(deptMapper.mapToEntity(deptDto));
     }
 }

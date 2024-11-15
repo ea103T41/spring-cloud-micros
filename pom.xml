@@ -11,6 +11,7 @@
     <modules>
         <module>common-api</module>
         <module>service-provider</module>
+        <module>service-client</module>
     </modules>
 
     <properties>
