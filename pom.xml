@@ -12,6 +12,7 @@
         <module>common-api</module>
         <module>service-provider</module>
         <module>service-client</module>
+        <module>book-provider</module>
     </modules>
 
     <properties>
