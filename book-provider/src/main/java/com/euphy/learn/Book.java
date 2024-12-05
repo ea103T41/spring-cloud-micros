@@ -10,7 +10,7 @@ import lombok.Data;
 public class Book {
     @Id
     @GeneratedValue
-    private Integer bookid;
+    private Integer id;
     private String name;
     private String author;
 }
