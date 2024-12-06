@@ -1,0 +1,10 @@
+INSERT INTO `_user` (`id`, `name`, `email`) VALUES (1, '小王', 'bVY8O@example.com');
+INSERT INTO `_user` (`id`, `name`, `email`) VALUES (2, '小明', '2ZGnL@example.com');
+INSERT INTO `_user` (`id`, `name`, `email`) VALUES (3, '小红', 'bVY8O@example.com');
+INSERT INTO `_user` (`id`, `name`, `email`) VALUES (4, '小李', '2ZGnL@example.com');
+INSERT INTO `_user` (`id`, `name`, `email`) VALUES (5, '小刘', 'bVY8O@example.com');
+INSERT INTO `_user` (`id`, `name`, `email`) VALUES (6, '小赵', '2ZGnL@example.com');
+INSERT INTO `_user` (`id`, `name`, `email`) VALUES (7, '小钱', 'bVY8O@example.com');
+INSERT INTO `_user` (`id`, `name`, `email`) VALUES (8, '小孙', '2ZGnL@example.com');
+INSERT INTO `_user` (`id`, `name`, `email`) VALUES (9, '小周', 'bVY8O@example.com');
+INSERT INTO `_user` (`id`, `name`, `email`) VALUES (10, '小吴', '2ZGnL@example.com');
