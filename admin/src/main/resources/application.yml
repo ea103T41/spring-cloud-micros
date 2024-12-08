@@ -1,2 +1,28 @@
 server:
   port: 8000
+
+spring:
+  application:
+    name: svc-admin
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: ${EMAIL_USERNAME}
+    password: ${EMAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true;
+          starttls.enable: true
+  boot:
+    admin:
+      notify:
+        mail:
+          enabled: false
+          from: ${spring.mail.username}
+          to: xxx@gmail.com
+        line:
+          enabled: true
+          channelSecret: ${LINE_CHANNEL_SECRET}
+          channelToken: ${LINE_CHANNEL_TOKEN}
+          to: ${LINE_USER_ID}
