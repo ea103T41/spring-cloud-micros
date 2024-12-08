@@ -2,6 +2,8 @@ server:
   port: 8003
 
 spring:
+  application:
+    name: svc-book
   h2:
     console:
       enabled: true
@@ -9,3 +11,16 @@ spring:
     url: jdbc:h2:mem:test;DB_CLOSE_DELAY=-1
     username: sa
     password:
+  boot:
+    admin:
+      client:
+        url: http://localhost:8000
+        metadata:
+          user.name: ${spring.security.user.name}
+          user.password: ${spring.security.user.password}
+  security:
+    user:
+      name: admin
+      password: admin123
+
+management.security.enabled: true

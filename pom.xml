@@ -14,6 +14,7 @@
         <module>service-client</module>
         <module>book-provider</module>
         <module>user-provider</module>
+        <module>admin</module>
     </modules>
 
     <properties>
@@ -23,6 +24,7 @@
         <h2.version>2.2.224</h2.version>
         <spring-cloud.version>2023.0.0</spring-cloud.version>
         <spring-boot.version>3.4.0</spring-boot.version>
+        <spring-admin.version>3.4.0</spring-admin.version>
     </properties>
 
     <dependencyManagement>
