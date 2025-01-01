@@ -6,3 +6,8 @@ spring:
     cache-names: getTime,currentTimeMillis
     caffeine:
       spec: maximumSize=50,expireAfterAccess=600s
+  sql:
+    init:
+      mode: always # 改用R2DBC需啟用初始化腳本模式
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:import.sql

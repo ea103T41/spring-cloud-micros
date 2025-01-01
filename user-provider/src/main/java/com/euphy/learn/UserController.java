@@ -1,6 +1,5 @@
 package com.euphy.learn;
 
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -8,6 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/users")
@@ -21,22 +22,27 @@ public class UserController {
     }
 
     @GetMapping
-    public Iterable<User> findAll() {
+    public Flux<User> findAll() {
         return userRepository.findAll();
     }
 
     @GetMapping("/name/{name}")
-    public User findByName(@PathVariable(name = "name") String name) {
+    public Mono<User> findByName(@PathVariable(name = "name") String name) {
         return userRepository.findByName(name);
     }
 
     @GetMapping("/{id}")
-    public User findById(@PathVariable(name = "id") Integer id) {
-        return userRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+    public Mono<User> findById(@PathVariable(name = "id") Integer id) {
+        return userRepository.findById(id);
     }
 
-    @PostMapping("/save")
-    public User save(@RequestBody User user) {
-        return userRepository.save(user);
+    @PostMapping
+    public Mono<User> save(@RequestBody UserDto userDto) {
+        if (userDto.getName() == null || userDto.getEmail() == null) {
+            return Mono.error(new IllegalArgumentException("Name and Email are required"));
+        }
+        User user = User.builder().name(userDto.getName()).email(userDto.getEmail()).build();
+        return userRepository.save(user)
+          .onErrorResume(e -> Mono.error(new RuntimeException("Failed to save user", e)));
     }
 }
