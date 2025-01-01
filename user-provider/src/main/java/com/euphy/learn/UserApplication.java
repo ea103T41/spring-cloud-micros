@@ -8,10 +8,10 @@ import org.springframework.retry.annotation.EnableRetry;
 @EnableRetry
 @EnableCaching
 @SpringBootApplication
-public class Application {
+public class UserApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(UserApplication.class, args);
         System.out.println("http://localhost:8004");
     }
 }

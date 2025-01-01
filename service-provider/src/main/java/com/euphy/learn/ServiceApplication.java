@@ -1,15 +1,13 @@
 package com.euphy.learn;
 
-import de.codecentric.boot.admin.server.config.EnableAdminServer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@EnableAdminServer
 @SpringBootApplication
-public class Application {
+public class ServiceApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
-        System.out.println("http://localhost:8000");
+        SpringApplication.run(ServiceApplication.class, args);
+        System.out.println("http://localhost:8001");
     }
 }

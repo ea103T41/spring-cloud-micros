@@ -48,5 +48,5 @@ info: #Eureka中針對本服務端的信息描述
   company:
     name: www.euphy.com
   build:
-    artifactId: ${project.artifactId}
-    version: ${project.version}
+    artifactId: @project.artifactId@
+    version: @project.version@
