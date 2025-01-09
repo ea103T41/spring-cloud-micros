@@ -1,13 +1,9 @@
-server:
-  port: 8004
-
 spring:
-  cache:
-    cache-names: getTime,currentTimeMillis
-    caffeine:
-      spec: maximumSize=50,expireAfterAccess=600s
+  application:
+    name: user-provider
   sql:
     init:
-      mode: always # 改用R2DBC需啟用初始化腳本模式
       schema-locations: classpath:schema.sql
       data-locations: classpath:import.sql
+  config:
+    import: optional:configserver:http://localhost:8888
