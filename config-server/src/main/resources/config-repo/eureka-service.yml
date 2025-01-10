@@ -1,0 +1,17 @@
+server:
+  port: ${PORT:8761}
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    #false表示不向註冊中心註冊自己
+    register-with-eureka: false
+    #false表示自己端就是註冊中心，我的職責就是維護服務實例，並不需要去檢索服務
+    fetch-registry: false
+    #表示要註冊到的位址
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    server:
+      enable-self-preservation: false #自我保護機制，預設為關閉
+      eviction-interval-timer-in-ms: 4000 #清除失效節點的頻率，預設為 60 sec
