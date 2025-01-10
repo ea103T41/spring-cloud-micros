@@ -1,4 +1,4 @@
-package com.euphy.learn;
+package com.euphy.learn.controller;
 
 import io.swagger.v3.oas.annotations.Hidden;
 import org.springframework.web.bind.annotation.GetMapping;

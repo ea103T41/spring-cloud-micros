@@ -1,4 +1,4 @@
-package com.euphy.learn;
+package com.euphy.learn.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
