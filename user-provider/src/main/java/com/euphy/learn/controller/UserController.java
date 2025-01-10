@@ -1,5 +1,8 @@
-package com.euphy.learn;
+package com.euphy.learn.controller;
 
+import com.euphy.learn.User;
+import com.euphy.learn.UserDto;
+import com.euphy.learn.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
