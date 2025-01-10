@@ -1,0 +1,27 @@
+server:
+  port: 8004
+
+spring:
+  cache:
+    cache-names: getTime,currentTimeMillis
+    caffeine:
+      spec: maximumSize=50,expireAfterAccess=600s
+  sql:
+    init:
+      mode: always # 改用R2DBC需啟用初始化腳本模式
+
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: true  #開啟檢索服務
+    service-url:
+      #若要註冊到多台 Eureka Server，可用逗號區隔
+      defaultZone: http://localhost:8761/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, refresh
+
+message: Hello User-Provider!

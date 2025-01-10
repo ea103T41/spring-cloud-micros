@@ -40,3 +40,4 @@ build/
 
 ### Personal ###
 **/application-default.yml
+**/application-native.yml
